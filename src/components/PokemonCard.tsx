@@ -27,6 +27,8 @@ const PokemonCard = ({ pokemon }: Props) => {
     const getPokemonColor = async () => {
         const colors = await ImageColors.getColors(pokemon.picture, { fallback: 'grey' } );
 
+        if( !isMounted.current ) return;
+
         if( colors.platform === 'android' ) {
             setBgColor( colors.dominant || 'grey' );
         } else if ( colors.platform === 'ios' ) {
@@ -35,7 +37,7 @@ const PokemonCard = ({ pokemon }: Props) => {
     }
 
     useEffect(() => {
-        if( isMounted ) getPokemonColor();
+        getPokemonColor();
         return () =>  {
             isMounted.current = false;
         }

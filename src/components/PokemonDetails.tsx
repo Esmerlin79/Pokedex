@@ -2,6 +2,7 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
+import { capitalizer } from '../helper/utils'
 import { PokemonFull } from '../interfaces/pokemonInterfaces'
 import { FadeInImage } from './FadeInImage'
 
@@ -11,9 +12,6 @@ interface Props {
 
 const PokemonDetails = ({ pokemon }: Props) => {
 
-    const capitalizer = (word: string) => {
-        return word.slice(0,1).toUpperCase() + word.slice(1);
-    } 
 
     return (
         <ScrollView

@@ -16,7 +16,7 @@ const usePokemon = ( id: string ) => {
     }
 
     useEffect(() => {
-        if( isMounted ) loadPokemon();
+        if( isMounted.current ) loadPokemon();
         return () => {
             isMounted.current = false;
         }
